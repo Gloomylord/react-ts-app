@@ -1,0 +1,52 @@
+.container {
+    max-width: 1920px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main {
+    padding: 2rem 0;
+    padding-left: calc(10vw + 1rem);
+    display: flex;
+    flex-grow: 2;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.borderMain {
+    height: 200px;
+    width: 200px;
+    border-width: calc(var(--width) * 1px);
+    border-color: #741d97;
+    border-style: solid;
+    box-shadow: 0 0 1px #20022d;
+}
+
+.solid {
+    border-style: solid;
+}
+
+.inset {
+    border-style: inset;
+}
+
+.button {
+    margin: 6px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 500px;
+    padding: 2rem 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+    .main {
+        padding-left: calc(100px + 2rem);
+    }
+}

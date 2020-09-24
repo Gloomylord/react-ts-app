@@ -1,0 +1,61 @@
+.main {
+    display: flex;
+    position: fixed;
+    min-height: 100vh;
+    left: 0;
+    top: 0;
+    background: #edeff8;
+    animation: appearance .2s ease-out 1;
+    z-index: 1000;
+    padding: 70px 1rem;
+    max-width: 10vw;
+    min-width: 100px;
+}
+
+.list > :first-child a{
+    margin: 0;
+}
+
+.elem {
+    text-align: center;
+    display: block;
+    white-space: pre-line;
+    cursor: pointer;
+    color: #444;
+    font-weight: 600;
+    opacity: .5;
+    margin: 1rem 0;
+}
+
+.elem:hover {
+    opacity: 1;
+    color: #444444;
+}
+
+.elem  i {
+    font-size: 50px;
+    color: #666666;
+    display: block;
+}
+
+.elem:hover  i {
+    color: #555;
+}
+
+.choose {
+    color: #444444;
+    opacity: 1;
+}
+
+.choose > i {
+    color: #555;
+}
+
+@keyframes appearance {
+    0% {
+        left: -10vw;
+    }
+    100% {
+        left: 0;
+    }
+}

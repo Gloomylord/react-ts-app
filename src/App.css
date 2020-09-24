@@ -1,38 +1,157 @@
-.App {
-  text-align: center;
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.px1 {
+    padding: 0 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input-field {
+    margin: 3rem 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.m2 {
+    margin: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.result {
+    padding: 0 2rem;
+    margin: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inputBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
 }
+
+.inputBlock > * {
+    width: 50%;
+}
+
+.appearance {
+    box-sizing: border-box;
+    animation: appearance .5s ease-in-out 1;
+    cursor: default;
+    word-wrap: break-word;
+}
+
+.appearance > span {
+    cursor: pointer;
+    align-self: center;
+}
+
+.dropContainer {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    flex-grow: 1;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.page-footer {
+    position: relative;
+    height: 60px;
+    box-shadow: 1px 1px 10px rgba(68, 68, 68, 0.5),
+    inset -1px -1px 5px rgba(68, 68, 68, 0.5),
+    -1px -1px 5px rgba(255, 255, 255, 0.5);
+    margin-top: auto;
+    z-index: 2000;
+}
+
+.drop {
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    left: calc(var(--i) * 9vw + (.5 - var(--m)) * 10vw);
+    transform: translate(-50%, -50%);
+    background: #0277bd;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 1px #444,
+    inset 0 0 1px rgba(255, 255, 255, .5);
+    height: 40px;
+    width: 40px;
+    filter: blur(4px);
+}
+
+.dropNav {
+    animation: dropNav calc(var(--m) * 5s + 2s) ease-out infinite;
+    animation-delay: calc(var(--s) * 5s);
+}
+
+.link {
+    position: relative;
+    filter: url(#goo);
+}
+
+.link > a {
+    position: relative;
+    z-index: 100;
+    background: #7b1fa2;
+    padding: 0 30px;
+}
+
+.link > a:hover {
+    background: #741d97 !important;
+}
+
+.link:before {
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border: 0;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    background: #7b1fa2;
+    transition: .2s;
+    z-index: 1;
+}
+
+.link:hover:before {
+    background: #741d97;
+}
+
+.choose:before {
+    top: 100%;
+}
+
+.gooeyNav {
+    filter: blur(5px);
+    box-shadow: inset -1px -1px 5px rgba(68, 68, 68, 0.5),
+    -1px -1px 5px rgba(255, 255, 255, 0.5),
+    inset 1px 1px 5px rgba(255, 255, 255, .5);
+}
+
+.nav-wrapper {
+    z-index: 2;
+}
+
+.filterSvg {
+    width: 0;
+    height: 0;
+}
+
+.navigateTop {
+    z-index: 2000;
+}
+
+@keyframes dropNav {
+    0% {
+        top: 30px;
+    }
+    100% {
+        top: 67vh;
+    }
+}
+
+
