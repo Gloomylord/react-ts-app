@@ -1,19 +1,16 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
+import {TodoContext} from "../../context/todo/todoContext";
 
-interface TodoFormProps {
-    addTask(str: string): void
-}
-
-export const TodoForm: React.FC<TodoFormProps> = (props) => {
+export const TodoForm: React.FC = () => {
     const [task, setTask] = useState<string>('');
-
+    const {addTask} = useContext(TodoContext);
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTask(event.target.value);
     }
 
     const onKeyDown = (event: React.KeyboardEvent): void => {
         if (event.key === 'Enter' && task !== '') {
-            props.addTask(task);
+            addTask(task);
             setTask('');
         }
     }
