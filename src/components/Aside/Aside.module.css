@@ -49,3 +49,9 @@
 .choose > i {
     color: #555;
 }
+
+@media (max-width: 992px) {
+    .main {
+        left: -100px;
+    }
+}

@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useState} from "react";
+import React, {useCallback, useContext} from "react";
 import {Slider} from "../Slider/Slider";
 import styles from './Border.module.css';
 import cn from "classnames";
@@ -13,7 +13,7 @@ export const Border: React.FC = () => {
     return <section className={styles.main}>
         <label>border-radius: {Math.ceil(state.radius)}px;</label>
         <Slider value={state.radius} setValue={setRadius}/>
-        <label>border-widthnpm start : {Math.ceil(state.width)}px;</label>
+        <label>border-width : {Math.ceil(state.width)}px;</label>
         <Slider value={state.width} setValue={setWidth}/>
 
         <div className={styles.borderMain}
@@ -22,7 +22,7 @@ export const Border: React.FC = () => {
                  '--radius': state.radius,
                  borderStyle: state.borderStyle
              } as React.CSSProperties}/>
-        <label>border-style: {state.borderStyle}px;</label>
+        <label>border-style: {state.borderStyle};</label>
         <div className={styles.buttons}>
             {
                 ['solid', 'inset', 'dashed', 'dotted', 'double', 'groove', 'ridge',].map((i, j) =>

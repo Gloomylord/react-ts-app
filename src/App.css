@@ -4,6 +4,12 @@
     min-height: 100vh;
 }
 
+.container {
+    display: flex;
+    min-height: calc(100vh - 124px);
+    justify-content: center;
+}
+
 .px1 {
     padding: 0 1rem;
 }
@@ -33,27 +39,12 @@
 }
 
 .appearance {
-    box-sizing: border-box;
-    cursor: default;
-    word-wrap: break-word;
-    position: relative;
-    z-index: 1;
+
 }
 
 .appearance > span {
     cursor: pointer;
     align-self: center;
-}
-
-.dropContainer {
-    position: relative;
-    width: 100%;
-    min-height: 500px;
-    flex-grow: 1;
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .page-footer {
@@ -64,27 +55,6 @@
     -1px -1px 5px rgba(255, 255, 255, 0.5);
     margin-top: auto;
     z-index: 2000;
-}
-
-.drop {
-    cursor: pointer;
-    position: absolute;
-    top: 30px;
-    left: calc(var(--i) * 9vw + (.5 - var(--m)) * 10vw);
-    transform: translate(-50%, -50%);
-    background: #0277bd;
-    border: 0;
-    border-radius: 50%;
-    box-shadow: inset 0 0 1px #444,
-    inset 0 0 1px rgba(255, 255, 255, .5);
-    height: 40px;
-    width: 40px;
-    filter: blur(4px);
-}
-
-.dropNav {
-    animation: dropNav calc(var(--m) * 5s + 2s) ease-out infinite;
-    animation-delay: calc(var(--s) * 5s);
 }
 
 .link {
@@ -172,18 +142,23 @@
 }
 
 .note-exit {
-    animation: note .41s ease-in 1;
+    animation: note .5s ease-in-out 1;
 }
 
 .note-enter {
-    animation: note .8s ease-out 1 alternate-reverse;
+    animation: note .8s ease-in-out 1 alternate-reverse;
 }
 
 .list-group-item {
     border-collapse: collapse;
     padding: 10px 20px;
     border: #edeff8 solid 1px;
-    transform: translateY(calc(var(--i) * -1px));
+    margin-top: -1px;
+    transition: .2s;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    position: relative;
+    z-index: 1;
 }
 
 .list-group {
@@ -191,22 +166,30 @@
 }
 
 .list-group > :first-child {
-    border-radius: 5px 5px 0 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .list-group > :last-child {
-    border-radius: 0 0 5px 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 @keyframes note {
     0% {
-        transform: translateY(0);
-        height: auto;
+        transform: translateX(0);
         z-index: 0;
     }
+    30% {
+        transform: translateX(20px);
+        opacity: 3;
+        filter: blur(1px);
+    }
     100% {
-        transform: translateY(100%);
+        transform: translateX(-40%);
+        opacity: 0;
         z-index: 1;
+        filter: blur(10px);
     }
 }
 

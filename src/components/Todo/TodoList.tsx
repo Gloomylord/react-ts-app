@@ -15,9 +15,8 @@ export const TodoList: React.FC = () => {
 
     return <TransitionGroup component='ul' className="list-group m2 ">
         {
-            state.todoList.map((item: string, index: number) => <CSSTransition in={!!item}
-                                                                               timeout={{enter: 800, exit: 400}}
-                                                                               key={index}
+            state.todoList.map((item: string, index: number) => <CSSTransition timeout={{enter: 800, exit: 490}}
+                                                                               key={item}
                                                                                classNames='note'
                                                                                unmountOnExit={true}
                                                                                mountOnEnter={true}>

@@ -9,6 +9,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {MainState} from "./context/main/MainState";
 import {CSS} from "./pages/CSS";
 import {TodoState} from "./context/todo/TodoState";
+import {Drops} from "./components/Drop/ Drops";
 
 const App: React.FunctionComponent = () => {
     let [str, setStr] = useState<string>('');
@@ -32,9 +33,12 @@ const App: React.FunctionComponent = () => {
                         <TodoForm/>
                         <TodoList/>
                     </Route>
-                    <Route path="/JavaScript" exact component={App}>
+                    <Route path="/JavaScript" exact>
                         <TextForm str={str} setStr={setStr} startSolve={startSolve}/>
                         <h2 className='result px1'>Результат: {res}</h2>
+                    </Route>
+                    <Route path='/css/animation' exact>
+                        <Drops/>
                     </Route>
                     <svg className='filterSvg ' xmlns="http://www.w3.org/2000/svg" version="1.1">
                         <defs>

@@ -1,23 +1,20 @@
 import React, {useCallback, useReducer} from "react";
 import {MainContext} from "./mainContext";
 import {mainReducer} from "./mainReducer";
-
-interface IState {
-    width: number
-}
+import {SET_BORDER_STYLE, SET_LOCATION, SET_RADIUS, SET_WIDTH} from "../types";
 
 export const MainState: React.FC = ({children}) => {
     let [state, dispatch] = useReducer<any>(mainReducer, {
         width: 40,
         location: window.location.pathname,
         radius: 0,
-        borderStyle: 'solid'
+        borderStyle: 'solid',
     });
 
     const setWidth = useCallback((value: number) => {
         // @ts-ignore
         dispatch({
-            type: "SET_WIDTH",
+            type: SET_WIDTH,
             width: value
         })
     }, []);
@@ -25,7 +22,7 @@ export const MainState: React.FC = ({children}) => {
     const setBorderStyle = useCallback((value: string) => {
         // @ts-ignore
         dispatch({
-            type: "SET_BORDER_STYLE",
+            type: SET_BORDER_STYLE,
             borderStyle: value
         })
     }, []);
@@ -33,7 +30,7 @@ export const MainState: React.FC = ({children}) => {
     const setLocation = useCallback((value: string) => {
         // @ts-ignore
         dispatch({
-            type: "SET_LOCATION",
+            type: SET_LOCATION,
             location: value
         })
     }, []);
@@ -41,7 +38,7 @@ export const MainState: React.FC = ({children}) => {
     const setRadius = useCallback((value: string) => {
         // @ts-ignore
         dispatch({
-            type: "SET_RADIUS",
+            type: SET_RADIUS,
             radius: value
         })
     }, []);

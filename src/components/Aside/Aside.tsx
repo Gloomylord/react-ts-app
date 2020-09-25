@@ -11,8 +11,11 @@ interface IProp {
     icon: string,
 }
 
-
-let properties: Array<IProp> = [{text: 'border', icon: 'border_all'}, {text: 'background', icon: 'healing'}];
+let properties: Array<IProp> = [
+    {text: 'border', icon: 'border_all'},
+    {text: 'background', icon: 'healing'},
+    {text: 'animation', icon: 'animation'}
+    ];
 
 export const Aside: React.FC<{ show: boolean }> = (props) => {
     const {state, setLocation} = useContext(MainContext);
