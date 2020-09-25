@@ -5,7 +5,6 @@
     left: 0;
     top: 0;
     background: #edeff8;
-    animation: appearance .2s ease-out 1;
     z-index: 1000;
     padding: 70px 1rem;
     max-width: 10vw;
@@ -49,13 +48,4 @@
 
 .choose > i {
     color: #555;
-}
-
-@keyframes appearance {
-    0% {
-        left: -10vw;
-    }
-    100% {
-        left: 0;
-    }
 }

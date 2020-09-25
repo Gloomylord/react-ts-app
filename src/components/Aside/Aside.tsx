@@ -1,39 +1,45 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useContext} from "react";
 import styles from './Aside.module.css';
 import cn from 'classnames';
 import {Link} from "react-router-dom";
+import {CSSTransition} from "react-transition-group";
+import './../../App.css';
+import {MainContext} from "../../context/main/mainContext";
 
 interface IProp {
     text: string,
     icon: string,
 }
 
-interface AsideProps {
-    locationCss: string,
-    setLocationCss(str: any): void
-}
 
 let properties: Array<IProp> = [{text: 'border', icon: 'border_all'}, {text: 'background', icon: 'healing'}];
 
-export const Aside: React.FC<AsideProps> = (props) => {
-
+export const Aside: React.FC<{ show: boolean }> = (props) => {
+    const {state, setLocation} = useContext(MainContext);
     const onClick: React.EventHandler<any> = useCallback((event) => {
-        props.setLocationCss(event.currentTarget.dataset.id);
-    }, [props.locationCss]);
+        setLocation('/css/' + event.currentTarget.dataset.id);
+    }, [state.location]);
 
-
-    return <aside className={styles.main}>
-        <ul className={styles.list}>
-            {
-                properties.map((item: IProp) => <li key={item.text}>
-                    <Link onClick={onClick} to={'/css/' + item.text} data-id={item.text} className={cn(styles.elem, {
-                        [styles.choose]: props.locationCss === item.text,
-                    })}>
-                        <i className="large material-icons">{item.icon}</i>
-                        {item.text}
-                    </Link>
-                </li>)
-            }
-        </ul>
-    </aside>
+    return <CSSTransition in={props.show}
+                          classNames={'aside'}
+                          timeout={{enter: 500,exit:200}}
+                          mountOnEnter={true}
+                          unmountOnExit={true}
+    >
+        <aside className={cn(styles.main)}>
+            <ul className={styles.list}>
+                {
+                    properties.map((item: IProp) => <li key={item.text}>
+                        <Link onClick={onClick} to={'/css/' + item.text} data-id={item.text}
+                              className={cn(styles.elem, {
+                                  [styles.choose]: state.location === '/css/' + item.text,
+                              })}>
+                            <i className="large material-icons">{item.icon}</i>
+                            {item.text}
+                        </Link>
+                    </li>)
+                }
+            </ul>
+        </aside>
+    </CSSTransition>
 }
