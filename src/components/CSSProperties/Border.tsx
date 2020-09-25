@@ -5,26 +5,31 @@ import cn from "classnames";
 import {MainContext} from "../../context/main/mainContext";
 
 export const Border: React.FC = () => {
-    const {state, setWidth, setBorderStyle} = useContext(MainContext);
+    const {state, setWidth, setBorderStyle, setRadius} = useContext(MainContext);
     const onClick = useCallback((event) => {
         setBorderStyle(event.target.textContent);
     }, []);
 
-    return <div className={styles.container}>
-        <section className={styles.main}>
-            <Slider value={state.width} setValue={setWidth}/>
-            <label>border-style: {state.borderStyle};</label>
-            <div className={styles.borderMain}
-                 style={{'--width': state.width, borderStyle: state.borderStyle} as React.CSSProperties}/>
+    return <section className={styles.main}>
+        <label>border-radius: {Math.ceil(state.radius)}px;</label>
+        <Slider value={state.radius} setValue={setRadius}/>
+        <label>border-widthnpm start : {Math.ceil(state.width)}px;</label>
+        <Slider value={state.width} setValue={setWidth}/>
 
-            <div className={styles.buttons}>
-                {
-                    ['solid', 'inset', 'dashed', 'dotted', 'double', 'groove', 'ridge',].map((i, j) =>
-                        <button className={cn(styles.button, 'waves-effect waves-light btn')}
-                                onClick={onClick}
-                                key={j}>{i}</button>)
-                }
-            </div>
-        </section>
-    </div>
+        <div className={styles.borderMain}
+             style={{
+                 '--width': state.width,
+                 '--radius': state.radius,
+                 borderStyle: state.borderStyle
+             } as React.CSSProperties}/>
+        <label>border-style: {state.borderStyle}px;</label>
+        <div className={styles.buttons}>
+            {
+                ['solid', 'inset', 'dashed', 'dotted', 'double', 'groove', 'ridge',].map((i, j) =>
+                    <button className={cn(styles.button, 'waves-effect waves-light btn')}
+                            onClick={onClick}
+                            key={j}>{i}</button>)
+            }
+        </div>
+    </section>
 }

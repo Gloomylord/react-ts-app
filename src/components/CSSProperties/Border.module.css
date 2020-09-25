@@ -19,9 +19,11 @@
     height: 200px;
     width: 200px;
     border-width: calc(var(--width) * 1px);
+    border-radius: calc(var(--radius) * 1px);
     border-color: #741d97;
     border-style: solid;
     box-shadow: 0 0 1px #20022d;
+    margin: 1rem 0;
 }
 
 .solid {
@@ -48,5 +50,11 @@
 @media (max-width: 1200px) {
     .main {
         padding-left: calc(100px + 2rem);
+    }
+}
+
+@media (max-width: 400px) {
+    .main {
+        padding-left: 2rem;
     }
 }

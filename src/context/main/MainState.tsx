@@ -7,7 +7,12 @@ interface IState {
 }
 
 export const MainState: React.FC = ({children}) => {
-    let [state, dispatch] = useReducer<any>(mainReducer, {width: 40});
+    let [state, dispatch] = useReducer<any>(mainReducer, {
+        width: 40,
+        location: window.location.pathname,
+        radius: 0,
+        borderStyle: 'solid'
+    });
 
     const setWidth = useCallback((value: number) => {
         // @ts-ignore
@@ -25,7 +30,23 @@ export const MainState: React.FC = ({children}) => {
         })
     }, []);
 
-    return <MainContext.Provider value={{setWidth,state,setBorderStyle}}>
+    const setLocation = useCallback((value: string) => {
+        // @ts-ignore
+        dispatch({
+            type: "SET_LOCATION",
+            location: value
+        })
+    }, []);
+
+    const setRadius = useCallback((value: string) => {
+        // @ts-ignore
+        dispatch({
+            type: "SET_RADIUS",
+            radius: value
+        })
+    }, []);
+
+    return <MainContext.Provider value={{setWidth, state, setBorderStyle, setLocation, setRadius}}>
         {children}
     </MainContext.Provider>
 }
