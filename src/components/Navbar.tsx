@@ -1,23 +1,26 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useContext} from "react";
 import {Link} from "react-router-dom";
+import {MainContext} from "../context/main/mainContext";
 
 const Navbar: React.FunctionComponent = (props) => {
-    let [location, setLocation] = useState<string>('' + window.location.pathname.match(/\/(\w+)\/?/)![1]);
+    let {state, setLocation} = useContext(MainContext);
+
     const onClick: React.EventHandler<any> = useCallback((event) => {
-        setLocation(event.target.textContent);
+        setLocation('/' + event.target.textContent);
     }, [])
+    const str = state.location.toLowerCase();
 
     return <nav className='navigateTop'>
         <div className="nav-wrapper px1 purple darken-2">
             <a href="#" className="brand-logo">React+TypeScript</a>
             <ul onClick={onClick} id="nav-mobile" className="right hide-on-med-and-down">
-                <li className={(location === 'CSS') ? 'choose link' : 'link'}>
+                <li className={(str.indexOf('css') > 0) ? 'choose link' : 'link'}>
                     <Link to="/CSS">CSS</Link>
                 </li>
-                <li className={(location === 'Components' || location === '') ? 'choose link' : 'link'}>
+                <li className={(str.indexOf('components') > 0 || str === '' || str === '/') ? 'choose link' : 'link'}>
                     <Link to="/Components">Components</Link>
                 </li>
-                <li className={(location === 'JavaScript') ? 'choose link' : 'link'}>
+                <li className={(str.indexOf('javascript') > 0) ? 'choose link' : 'link'}>
                     <Link to="/JavaScript">JavaScript</Link>
                 </li>
             </ul>
