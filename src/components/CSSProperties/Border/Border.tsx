@@ -1,8 +1,8 @@
 import React, {useCallback, useContext} from "react";
-import {Slider} from "../Slider/Slider";
+import {Slider} from "../../Slider/Slider";
 import styles from './Border.module.css';
 import cn from "classnames";
-import {MainContext} from "../../context/main/mainContext";
+import {MainContext} from "../../../context/main/mainContext";
 
 export const Border: React.FC = () => {
     const {state, setWidth, setBorderStyle, setRadius} = useContext(MainContext);

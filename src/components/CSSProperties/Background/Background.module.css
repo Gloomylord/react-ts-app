@@ -1,0 +1,32 @@
+.main {
+    padding: 2rem 1rem;
+}
+
+.back {
+    height: 19vw;
+    width: 30vw;
+    background: url('/bg1.jpg'), url('/bg2.jpg');
+    border-radius: 5px;
+    background-blend-mode: overlay;
+    background-size: calc(var(--size) * 2% + 10%);
+    margin: 1rem 0;
+}
+
+.button {
+    margin: 6px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+    .back {
+        width: 60vw;
+        height: 38vw;
+    }
+}

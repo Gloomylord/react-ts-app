@@ -1,17 +1,17 @@
 .dropContainer {
     position: relative;
     width: 80%;
-    min-height: 500px;
+    min-height: 400px;
     max-height: 100vh;
     max-width: 800px;
-    height: 80%;
+    height: 40vh;
     align-self: center;
     flex-grow: 1;
-    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     filter: url(#goo);
+    margin: calc((50vh - 124px) / 2);
 }
 
 .drop {
@@ -44,7 +44,7 @@
 }
 
 @keyframes animate {
-    0%{
+    0% {
         top: 0;
     }
     100% {

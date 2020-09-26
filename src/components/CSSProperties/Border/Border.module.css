@@ -6,8 +6,7 @@
 }
 
 .main {
-    padding: 2rem 0;
-    padding-left: calc(10vw + 1rem);
+    padding: 2rem 1rem;
     display: flex;
     flex-grow: 2;
     flex-direction: column;
@@ -45,16 +44,4 @@
     max-width: 500px;
     padding: 2rem 0;
     box-sizing: border-box;
-}
-
-@media (max-width: 1200px) {
-    .main {
-        padding-left: calc(100px + 2rem);
-    }
-}
-
-@media (max-width: 400px) {
-    .main {
-        padding-left: 2rem;
-    }
 }
