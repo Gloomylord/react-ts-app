@@ -1,0 +1,50 @@
+.main {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter {
+    height: 28vw;
+    width: 40vw;
+    background: url('/cat.jpg');
+    border-radius: 5px;
+    background-blend-mode: overlay;
+    background-size: cover;
+    margin: 1rem 0;
+    align-self: center;
+}
+
+.sliderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.button {
+    margin: 6px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 40vw;
+    padding: 1rem 0;
+    box-sizing: border-box;
+    align-self: center;
+    margin-left: 1rem;
+}
+
+
+@media (max-width: 1200px) {
+    .filter {
+        width: 60vw;
+        height: 40vw;
+    }
+
+    .buttons {
+        max-width: 60vw;
+    }
+}

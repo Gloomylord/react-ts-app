@@ -7,6 +7,8 @@ import {Drops} from "../components/CSSProperties/Drop/ Drops";
 import {Background} from "../components/CSSProperties/Background/Background";
 import {BackContext} from "../context/background/backContext";
 import {BackState} from "../context/background/BackState";
+import {Filter} from "../components/CSSProperties/Filter/Filter";
+import {FilterState} from "../context/filter/FilterState";
 
 export const CSS: React.FC = () => {
     const {state} = useContext(MainContext);
@@ -28,6 +30,11 @@ export const CSS: React.FC = () => {
                     <Background/>
                 </Route>
             </BackState>
+            <FilterState>
+                <Route path='/css/filter' exact>
+                    <Filter/>
+                </Route>
+            </FilterState>
         </Route>
     </>
 }
