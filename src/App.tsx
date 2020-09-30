@@ -24,15 +24,15 @@ const App: React.FunctionComponent = () => {
                 <Navbar/>
                 <div className='container'>
                     <CSS/>
-                    <Route path="/" exact>
+                    <Route path="/react_ts/" exact>
                         <TodoForm/>
                         <TodoList/>
                     </Route>
-                    <Route path="/Components" exact>
+                    <Route path="/react_ts/Components" exact>
                         <TodoForm/>
                         <TodoList/>
                     </Route>
-                    <Route path="/JavaScript" exact>
+                    <Route path="/react_ts/JavaScript" exact>
                         <TextForm str={str} setStr={setStr} startSolve={startSolve}/>
                         <h2 className='result px1'>Результат: {res}</h2>
                     </Route>

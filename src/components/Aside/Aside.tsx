@@ -21,7 +21,7 @@ let properties: Array<IProp> = [
 export const Aside: React.FC<{ show: boolean }> = (props) => {
     const {state, setLocation} = useContext(MainContext);
     const onClick: React.EventHandler<any> = useCallback((event) => {
-        setLocation('/css/' + event.currentTarget.dataset.id);
+        setLocation('/react_ts/css/' + event.currentTarget.dataset.id);
     }, [state.location]);
 
     return <CSSTransition in={props.show}
@@ -34,7 +34,7 @@ export const Aside: React.FC<{ show: boolean }> = (props) => {
             <ul className={styles.list}>
                 {
                     properties.map((item: IProp) => <li key={item.text}>
-                        <Link onClick={onClick} to={'/css/' + item.text} data-id={item.text}
+                        <Link onClick={onClick} to={'/react_ts/css/' + item.text} data-id={item.text}
                               className={cn(styles.elem, {
                                   [styles.choose]: state.location === '/css/' + item.text,
                               })}>

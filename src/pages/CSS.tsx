@@ -5,7 +5,6 @@ import {Border} from "../components/CSSProperties/Border/Border";
 import {MainContext} from "../context/main/mainContext";
 import {Drops} from "../components/CSSProperties/Drop/ Drops";
 import {Background} from "../components/CSSProperties/Background/Background";
-import {BackContext} from "../context/background/backContext";
 import {BackState} from "../context/background/BackState";
 import {Filter} from "../components/CSSProperties/Filter/Filter";
 import {FilterState} from "../context/filter/FilterState";
@@ -15,26 +14,28 @@ export const CSS: React.FC = () => {
 
     return <>
         {<Aside show={state.location.toLowerCase().indexOf('css') > 0}/>}
-        <Route path='/CSS'>
-            <Route path='/CSS' exact>
-                <Border/>
-            </Route>
-            <Route path='/CSS/border'>
-                <Border/>
-            </Route>
-            <Route path='/css/animation' exact>
-                <Drops/>
-            </Route>
-            <BackState>
-                <Route path='/css/background' exact>
-                    <Background/>
-                </Route>
-            </BackState>
+        <BackState>
             <FilterState>
-                <Route path='/css/filter' exact>
-                    <Filter/>
+                <Route path='/react_ts/CSS'>
+                    <Route path='/react_ts/CSS' exact>
+                        <Border/>
+                    </Route>
+                    <Route path='/react_ts/CSS/border'>
+                        <Border/>
+                    </Route>
+                    <Route path='/react_ts/css/animation' exact>
+                        <Drops/>
+                    </Route>
+                    <Route path='/react_ts/css/background' exact>
+                        <Background/>
+                    </Route>
+
+                    <Route path='/react_ts/css/filter' exact>
+                        <Filter/>
+                    </Route>
+
                 </Route>
             </FilterState>
-        </Route>
+        </BackState>
     </>
 }

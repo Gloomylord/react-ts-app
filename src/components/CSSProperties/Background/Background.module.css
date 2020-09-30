@@ -5,7 +5,7 @@
 .back {
     height: 19vw;
     width: 30vw;
-    background: url('/bg1.jpg'), url('/bg2.jpg');
+    background: url('/react_ts/bg1.jpg'), url('/react_ts/bg2.jpg');
     border-radius: 5px;
     background-blend-mode: overlay;
     background-size: calc(var(--size) * 2% + 10%);
