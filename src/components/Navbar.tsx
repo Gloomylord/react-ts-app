@@ -17,7 +17,7 @@ const Navbar: React.FunctionComponent = (props) => {
                 <li className={(str.indexOf('css') > 0) ? 'choose link' : 'link'}>
                     <Link to="/react_ts/CSS">CSS</Link>
                 </li>
-                <li className={(str.indexOf('components') > 0 || str === '' || str === '/') ? 'choose link' : 'link'}>
+                <li className={(str.indexOf('components') > 0 || str === '' || str === '/react_rs/') ? 'choose link' : 'link'}>
                     <Link to="/react_ts/Components">Components</Link>
                 </li>
                 <li className={(str.indexOf('javascript') > 0) ? 'choose link' : 'link'}>

@@ -8,6 +8,8 @@ import {Background} from "../components/CSSProperties/Background/Background";
 import {BackState} from "../context/background/BackState";
 import {Filter} from "../components/CSSProperties/Filter/Filter";
 import {FilterState} from "../context/filter/FilterState";
+import {TransformState} from "../context/transform/TransformState";
+import {Transform} from "../components/CSSProperties/Transform/Transform";
 
 export const CSS: React.FC = () => {
     const {state} = useContext(MainContext);
@@ -16,6 +18,7 @@ export const CSS: React.FC = () => {
         {<Aside show={state.location.toLowerCase().indexOf('css') > 0}/>}
         <BackState>
             <FilterState>
+                <TransformState>
                 <Route path='/react_ts/CSS'>
                     <Route path='/react_ts/CSS' exact>
                         <Border/>
@@ -33,8 +36,11 @@ export const CSS: React.FC = () => {
                     <Route path='/react_ts/css/filter' exact>
                         <Filter/>
                     </Route>
-
+                    <Route path='/react_ts/css/transform' exact>
+                        <Transform/>
+                    </Route>
                 </Route>
+                </TransformState>
             </FilterState>
         </BackState>
     </>

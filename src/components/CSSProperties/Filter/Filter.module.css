@@ -7,7 +7,7 @@
 .filter {
     height: 28vw;
     width: 40vw;
-    background: url('/react_ts/cat.jpg');
+    background: url('/cat.jpg');
     border-radius: 5px;
     background-blend-mode: overlay;
     background-size: cover;

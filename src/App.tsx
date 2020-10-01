@@ -5,10 +5,11 @@ import {TodoForm} from "./components/Todo/TodoForm";
 import {TodoList} from "./components/Todo/TodoList";
 import {TextForm} from "./components/TextForm";
 import {places} from "./functions/places";
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import {MainState} from "./context/main/MainState";
 import {CSS} from "./pages/CSS";
 import {TodoState} from "./context/todo/TodoState";
+import {NoMatch} from "./pages/NoMatch";
 
 const App: React.FunctionComponent = () => {
     let [str, setStr] = useState<string>('');
@@ -24,18 +25,22 @@ const App: React.FunctionComponent = () => {
                 <Navbar/>
                 <div className='container'>
                     <CSS/>
-                    <Route path="/react_ts/" exact>
-                        <TodoForm/>
-                        <TodoList/>
-                    </Route>
-                    <Route path="/react_ts/Components" exact>
-                        <TodoForm/>
-                        <TodoList/>
-                    </Route>
-                    <Route path="/react_ts/JavaScript" exact>
-                        <TextForm str={str} setStr={setStr} startSolve={startSolve}/>
-                        <h2 className='result px1'>Результат: {res}</h2>
-                    </Route>
+                    <Switch>
+                        <Route path="/react_ts" exact/>
+                        <Route path="/react_ts/css/:props" exact/>
+                        <Route path="/react_ts/Components" exact>
+                            <TodoForm/>
+                            <TodoList/>
+                        </Route>
+                        <Route path="/react_ts/JavaScript" exact>
+                            <TextForm str={str} setStr={setStr} startSolve={startSolve}/>
+                            <h2 className='result px1'>Результат: {res}</h2>
+                        </Route>
+                        <Route path='*'>
+                            <NoMatch/>
+                        </Route>
+                    </Switch>
+
                     <svg className='filterSvg ' xmlns="http://www.w3.org/2000/svg" version="1.1">
                         <defs>
                             <filter id="goo">

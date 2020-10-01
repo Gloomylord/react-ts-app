@@ -15,7 +15,8 @@ let properties: Array<IProp> = [
     {text: 'border', icon: 'border_all'},
     {text: 'background', icon: 'healing'},
     {text: 'animation', icon: 'animation'},
-    {text: 'filter', icon: 'filter'}
+    {text: 'filter', icon: 'filter'},
+    {text: 'transform', icon: 'transform'}
     ];
 
 export const Aside: React.FC<{ show: boolean }> = (props) => {
