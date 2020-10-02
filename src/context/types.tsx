@@ -12,3 +12,7 @@ export const SET_TRANSFORM_FUNCTION = 'SET_TRANSFORM_FUNCTION';
 export const SET_TRANSFORM_X = 'SET_TRANSFORM_X';
 export const SET_TRANSFORM_Y = 'SET_TRANSFORM_Y';
 export const SET_TRANSFORM_Z = 'SET_TRANSFORM_Z';
+export const ADD_NOTE = 'SET_ADD_NOTE';
+export const REMOVE_NOTE = 'SET_REMOVE_NOTE';
+export const SHOW_LOADER = 'SHOW_LOADER';
+export const FETCH_NOTES = 'FETCH_NOTES';

@@ -5,11 +5,11 @@ import {TodoForm} from "./components/Todo/TodoForm";
 import {TodoList} from "./components/Todo/TodoList";
 import {TextForm} from "./components/TextForm";
 import {places} from "./functions/places";
-import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {MainState} from "./context/main/MainState";
 import {CSS} from "./pages/CSS";
-import {TodoState} from "./context/todo/TodoState";
 import {NoMatch} from "./pages/NoMatch";
+import {FirebaseState} from "./context/fifebase/FirebaseState";
 
 const App: React.FunctionComponent = () => {
     let [str, setStr] = useState<string>('');
@@ -20,13 +20,14 @@ const App: React.FunctionComponent = () => {
     }, [str, res]);
 
     return <MainState>
-        <TodoState>
+        <FirebaseState>
             <Router>
                 <Navbar/>
                 <div className='container'>
                     <CSS/>
                     <Switch>
-                        <Route path="/react_ts" exact/>
+                        <Route path="/react_ts/" exact/>
+                        <Route path="/react_ts/css" exact/>
                         <Route path="/react_ts/css/:props" exact/>
                         <Route path="/react_ts/Components" exact>
                             <TodoForm/>
@@ -55,7 +56,8 @@ const App: React.FunctionComponent = () => {
                 </div>
                 <footer className='page-footer purple darken-2'/>
             </Router>
-        </TodoState>
+
+        </FirebaseState>
     </MainState>
 }
 

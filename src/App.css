@@ -184,13 +184,11 @@
     30% {
         transform: translateX(20px);
         opacity: 3;
-        filter: blur(1px);
     }
     100% {
         transform: translateX(-40%);
         opacity: 0;
         z-index: 1;
-        filter: blur(10px);
     }
 }
 
