@@ -7,13 +7,14 @@ import {TransformContext} from "../../../context/transform/transformContext";
 const blendModeArr = ['translate', 'scale', 'rotate', 'skew']
 const transformMeasure: any = {
     translate: (x: number, y: number, z?: number) => ` translate(${Math.ceil(x - 50)}px, ${Math.ceil(y - 50)}px)`,
-    scale: (x: number, y: number, z?: number) => ` scaleX(${(x) / 50}) scaleY(${y / 50})`,
+    scale: (x: number, y: number, z?: number) => ` scaleX(${Math.ceil(x * 1.5)/ 100})`+
+        `scaleY(${Math.ceil(y * 1.5)/ 100})`,
     rotate: (x: number, y: number, z: number) =>
         ` rotateX(${Math.ceil((x - 50) / 100 * 360)}deg) ` +
         `rotateY(${Math.ceil((y - 50) / 100 * 360)}deg) ` +
         `rotateZ(${Math.ceil((z - 50) / 100 * 360)}deg)`,
     skew: (x: number, y: number, z?: number) =>
-        ` skewX(${Math.ceil((x - 50) / 100 * 60)}deg) skewY(${Math.ceil((+y - 50) / 100 * 60)}deg)`,
+        ` skewX(${Math.ceil((x - 50) / 100 * 50)}deg) skewY(${Math.ceil((+y - 50) / 100 * 50)}deg)`,
 }
 
 export const Transform: React.FC = () => {
@@ -45,20 +46,20 @@ export const Transform: React.FC = () => {
             }
             <label>transform: {transformMeasure[state.function](state.x, state.y, state.z)};</label>
         </div>
-
-        <div className={styles.transform}
-             style={{
-                 '--x': state.x,
-                 '--y': state.y,
-                 '--z': state.z,
-                 transform: 'perspective(500px) ' + transformMeasure[state.function](state.x, state.y, state.z),
-                 margin: (state.function === 'translate') ? '120px 50px': ''
-             } as React.CSSProperties}>
-            <div />
-            <span/>
-            <span/>
-            <span/>
-            <span/>
+        <div className={styles.transformContainer}>
+            <div className={styles.transform}
+                 style={{
+                     '--x': state.x,
+                     '--y': state.y,
+                     '--z': state.z,
+                     transform: 'perspective(500px) ' + transformMeasure[state.function](state.x, state.y, state.z),
+                 } as React.CSSProperties}>
+                <div/>
+                <span/>
+                <span/>
+                <span/>
+                <span/>
+            </div>
         </div>
     </div>
 }

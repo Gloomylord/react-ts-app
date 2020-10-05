@@ -1,13 +1,20 @@
+.transformContainer {
+    box-sizing: border-box;
+    -webkit-box-reflect: below  2px linear-gradient(transparent,#0001);
+    padding: 75px;
+    align-self: flex-start;
+    position: relative;
+}
+
 .transform {
     box-sizing: border-box;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     background: linear-gradient(90deg, #000 50%, #fff 50%, #fff 100%),
     linear-gradient(0deg, #000 50%, #fff 50%, #fff 100%);
     background-size: calc(100 / 4 * 1%) calc(100 / 4 * 1%);
     background-blend-mode: exclusion;
     border: 3px solid black;
-    margin: 120px 50px;
     transform-origin: center;
     transform-style: preserve-3d;
     position: relative;
@@ -15,8 +22,8 @@
 
 .transform :first-child {
     box-sizing: border-box;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     background: linear-gradient(90deg, #000 50%, #fff 50%, #fff 100%),
     linear-gradient(0deg, #000 50%, #fff 50%, #fff 100%);
     background-size: calc(100 / 4 * 1%) calc(100 / 4 * 1%);

@@ -1,8 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import './App.css';
 import Navbar from "./components/Navbar";
-import {TodoForm} from "./components/Todo/TodoForm";
-import {TodoList} from "./components/Todo/TodoList";
 import {TextForm} from "./components/TextForm";
 import {places} from "./functions/places";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -10,6 +8,9 @@ import {MainState} from "./context/main/MainState";
 import {CSS} from "./pages/CSS";
 import {NoMatch} from "./pages/NoMatch";
 import {FirebaseState} from "./context/fifebase/FirebaseState";
+import {Loader} from "./components/Loader/Loader";
+const TodoForm = React.lazy(() => import("./components/Todo/TodoForm"));
+const TodoList = React.lazy(() => import("./components/Todo/TodoList"));
 
 const App: React.FunctionComponent = () => {
     let [str, setStr] = useState<string>('');
@@ -26,12 +27,17 @@ const App: React.FunctionComponent = () => {
                 <div className='container'>
                     <CSS/>
                     <Switch>
+                        <Route path='/' exact/>
                         <Route path="/react_ts/" exact/>
                         <Route path="/react_ts/css" exact/>
                         <Route path="/react_ts/css/:props" exact/>
                         <Route path="/react_ts/Components" exact>
-                            <TodoForm/>
-                            <TodoList/>
+                            <React.Suspense fallback={''}>
+                                <TodoForm/>
+                            </React.Suspense>
+                            <React.Suspense fallback={<Loader color={'#222'}/>}>
+                                <TodoList/>
+                            </React.Suspense>
                         </Route>
                         <Route path="/react_ts/JavaScript" exact>
                             <TextForm str={str} setStr={setStr} startSolve={startSolve}/>

@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import {FirebaseContext} from "../../context/fifebase/firebaseContext";
 
-export const TodoForm: React.FC = () => {
+const TodoForm: React.FC = () => {
     const [task, setTask] = useState<string>('');
     const {addNote} = useContext(FirebaseContext);
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,3 +20,5 @@ export const TodoForm: React.FC = () => {
         <label htmlFor='title' className='active'>Введите название дела</label>
     </div>
 }
+
+export default TodoForm;

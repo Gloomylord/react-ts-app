@@ -27,4 +27,5 @@ const Navbar: React.FunctionComponent = (props) => {
         </div>
     </nav>
 }
+
 export default Navbar;

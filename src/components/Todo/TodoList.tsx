@@ -3,7 +3,7 @@ import {CSSTransition, TransitionGroup} from "react-transition-group";
 import {FirebaseContext} from "../../context/fifebase/firebaseContext";
 import {Loader} from "../Loader/Loader";
 
-export const TodoList: React.FC = () => {
+const TodoList: React.FC = () => {
     const {loading, notes, removeNote, fetchNotes} = useContext(FirebaseContext);
     const del = useCallback((event: React.MouseEvent<HTMLAnchorElement>) => {
         if (event.currentTarget.classList.contains('del')) {
@@ -39,3 +39,5 @@ export const TodoList: React.FC = () => {
         { loading && <Loader color={'#20022d'}/>}
     </>
 }
+
+export default TodoList;
